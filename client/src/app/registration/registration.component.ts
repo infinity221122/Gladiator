@@ -62,7 +62,7 @@ export class RegistrationComponent implements OnInit {
     return null;
   }
 
-  login() {
+  registration() {
     this.router.navigate(['/login']);
   }
 }

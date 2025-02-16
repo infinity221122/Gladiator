@@ -1,36 +1,32 @@
 <div class="container">
     <video autoplay loop muted playsinline class="background-video" oncanplay="this.parentElement.classList.add('video-loaded')">
         <source src="proxy/3000/../../assets/register.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
     
     <form [formGroup]="itemForm" (ngSubmit)="onRegister()">
         <h2><strong>EVENTIVERSE</strong></h2>
-    <p>Please Enter your details to Register</p>
+            <p>Please Enter your details to Register</p>
         <div class="form-group">
             <label for="username">Username</label>
-            <input id="username" type="text" formControlName="username" class="form-control" [ngClass]="{'is-invalid': itemForm.get('username')?.invalid && (itemForm.get('username')?.dirty || itemForm.get('username')?.touched), 'is-required': itemForm.get('username')?.hasError('required') && (itemForm.get('username')?.dirty || itemForm.get('username')?.touched)}" />
-            <div *ngIf="itemForm.get('username')?.invalid && (itemForm.get('username')?.dirty || itemForm.get('username')?.touched)" class="text-danger">
+            <input type="text" id="username" formControlName="username" class="form-control"  [ngClass]="{'is-invalid': itemForm.get('username')?.invalid && (itemForm.get('username')?.dirty || itemForm.get('username')?.touched), 'is-required': itemForm.get('username')?.hasError('required') && (itemForm.get('username')?.dirty || itemForm.get('username')?.touched)}"  />
+            <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched" class="error">
                 Username is required.
             </div>
         </div>
-
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" type="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': itemForm.get('email')?.invalid && (itemForm.get('email')?.dirty || itemForm.get('email')?.touched), 'is-required': itemForm.get('email')?.hasError('required') && (itemForm.get('email')?.dirty || itemForm.get('email')?.touched) && itemForm.get('email')?.hasError('email') }" />
-            <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched" class="text-danger">
+            <input type="email" id="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': itemForm.get('email')?.invalid && (itemForm.get('email')?.dirty || itemForm.get('email')?.touched), 'is-required': itemForm.get('email')?.hasError('required') && (itemForm.get('email')?.dirty || itemForm.get('email')?.touched)}"/>
+            <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched" class="error">
                 Valid email is required.
             </div>
         </div>
-
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': itemForm.get('password')?.invalid && (itemForm.get('password')?.dirty || itemForm.get('password')?.touched), 'is-required': itemForm.get('password')?.hasError('required') && (itemForm.get('password')?.dirty || itemForm.get('password')?.touched)} " />
+            <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': itemForm.get('password')?.invalid && (itemForm.get('password')?.dirty || itemForm.get('password')?.touched), 'is-required': itemForm.get('password')?.hasError('required') && (itemForm.get('password')?.dirty || itemForm.get('password')?.touched)}"/>
             <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched" class="error">
                 Password is required (minimum 6 characters and must include at least 1 uppercase letter and 1 special character).
             </div>
         </div>
-
         <div class="form-group">
             <label for="role">Role</label>
             <select id="role" formControlName="role" class="form-control">
@@ -42,8 +38,8 @@
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="itemForm.invalid">Register</button>
         <div style="display: flex; align-items: center;">
-            <span>Have an account already?
-                <button (click)="login()" class="btn btn-link" style="margin-left: 5px;">Login</button>
+            <span>Don't have an account?
+                <button (click)="registration()" class="btn btn-link" style="margin-left: 5px;">Login</button>
             </span>
         </div>
     </form>

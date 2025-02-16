@@ -1,11 +1,10 @@
 <div class="container">
     <video autoplay loop [muted]="true" playsinline class="background-video" oncanplay="this.parentElement.classList.add('video-loaded')">
         <source src="proxy/3000/../../assets/wwe.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
     <form [formGroup]="itemForm" (ngSubmit)="onLogin()">
         <div class="form-group">
-            <h3>Event Management and Resource Allocation</h3>
+            <h3>EVENTIVERSE</h3>
             <p>Please enter your user and password!</p>
           
             <label for="username">Username</label>
@@ -33,6 +32,7 @@
         <div *ngIf="showError" class="alert alert-danger">
             {{ errorMessage }}
         </div>
+        
     </form>
 
     
